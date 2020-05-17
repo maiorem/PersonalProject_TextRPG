@@ -18,6 +18,12 @@ public class GamePlayManager {
 		sc = new Scanner(System.in);
 	}
 
+	public int dice() {
+		return (int)(Math.random()*7);
+		
+	}
+	
+	
 	public void creatPlayer() {		
 		Player you = null;
 		System.out.println("** 이름을 생성합니다 **");
@@ -37,7 +43,14 @@ public class GamePlayManager {
 	}
 
 	public void showInfo(String name) {
-		you.get(name).showInfo();
+		try {
+			you.get(name).showInfo();
+		} catch(NullPointerException e) {
+			System.out.println("\"뭘 하고 싶은 거야?\"");
+			System.out.println("\"당신 지금 투명한 상태라는 거 알고 있어?\"");
+			System.out.println("\"이름부터 만들지 그래\"\n");
+			creatPlayer();
+		}
 	}
 
 	public String showName(String name) {

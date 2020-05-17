@@ -18,6 +18,10 @@ public class GameBasicInterface {
 			switch(num) {
 			case 1 :
 				open.tutorialMakePlayer();
+					
+					
+					
+					
 				
 				break;
 			case 2 :
