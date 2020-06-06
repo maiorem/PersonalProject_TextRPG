@@ -28,7 +28,7 @@ public abstract class Village {
 		System.out.println("마을에 도착했다.");
 		System.out.println("집과 사람들을 보니 마음이 안정되는 것을 느낀다.");
 		System.out.println("======================================================================");
-		System.out.println("1.걷는다.\t2.상점에 간다.\t3.여관을 찾는다.\t4.마을을 나간다.\t5.내 상태를 본다.\n6.게임을 저장한다.\t7.게임을 종료한다.\n");
+		System.out.println("1.걷는다.\t2.상점에 간다.\t3.여관을 찾는다.\n4.마을을 나간다.\t5.내 상태를 본다.\n6.게임을 저장한다.\t7.게임을 종료한다.\n");
 		int sel=Integer.parseInt(input.nextLine().trim());
 		switch(sel) {
 		case 1:

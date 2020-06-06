@@ -1,6 +1,9 @@
 package player;
 
+import java.util.HashMap;
+
 import Monster.Monster;
+import Npc.Npc;
 
 public class Player {
 	
@@ -12,6 +15,8 @@ public class Player {
 	int gold;
 	int ex;
 	
+	HashMap<String, Integer> npcImpress; //Npc 호감도
+	
 	public Player(String name) {
 		this.name=name;
 		level=1;
@@ -20,7 +25,14 @@ public class Player {
 		defense=1;
 		gold=0;
 		ex=0;
+		npcImpress = new HashMap<String, Integer>();
 	}
+	
+	void addNpcImpress(Npc npc, String npcName) {
+		npcImpress.put(npcName, npc.getImpress());
+	}
+	
+	
 	
 	
 	int levelSet() {

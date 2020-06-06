@@ -9,7 +9,7 @@ public class GamePlayManager {
 
 
 	HashMap<String,Player> you;
-	Scanner sc;
+	public static Scanner sc;
 
 
 	public GamePlayManager() {
@@ -18,7 +18,7 @@ public class GamePlayManager {
 		sc = new Scanner(System.in);
 	}
 
-	public int dice() {
+	public static int dice() {
 		return (int)(Math.random()*7);
 		
 	}
