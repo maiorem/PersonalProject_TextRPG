@@ -1,7 +1,5 @@
 package Npc;
 
-import java.util.HashMap;
-
 import gameBasic.GamePlayManager;
 import player.Player;
 
@@ -21,18 +19,18 @@ public abstract class Npc {
 	}
 
 
-	public void impressUp(String pname, int impU) {
-		this.impress=game.getYou().get(pname).getImp(name)+impU;
+	public void impressUp(Player you, int impU) {
+		this.impress=you.getImp(name)+impU;
 		
 	}
 	
 
 
-	public void impressDown(String pname, int impD) {
-		if(game.getYou().get(pname).getImp(name)==0) {
+	public void impressDown(Player you, int impD) {
+		if(you.getImp(name)==0) {
 			impress=0;
 		} else {
-			this.impress=game.getYou().get(pname).getImp(name)-impD;
+			this.impress=you.getImp(name)-impD;
 		}
 		
 	}

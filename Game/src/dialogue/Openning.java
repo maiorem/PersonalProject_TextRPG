@@ -24,7 +24,7 @@ public class Openning {
 
 	public void dialogueNoname() {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -34,13 +34,13 @@ public class Openning {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("내가 그렇게 생각한 것은, 나에 대해 모호하게 느껴지기 때문이었다.");
+		System.out.println("내가 그렇게 생각한 것은, 나에 대해 모호하게 느껴지기 때문이다.");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("내가 누군지, 내 형체가 어떠한지, 모든 것이 모호했다.");
+		System.out.println("내가 누군지, 내 형체가 어떠한지, 모든 것이 흐릿하다.");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {

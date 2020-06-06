@@ -9,8 +9,8 @@ public class Cat extends Npc {
 	
 
 	public Cat() {
-		super.name="고양이";
-		super.impress=0;
+		this.name="고양이";
+		this.impress=0;
 	}
 	
 	
@@ -55,7 +55,8 @@ public class Cat extends Npc {
 	@Override
 	protected void firstMeeting(String name) {
 		Npc npc = new Cat();
-		game.getYou().get(name).meetingNpc(this.name, npc);
+		Player you = new Player(name);
+		you.meetingNpc(this.name, npc);
 		System.out.println("\"왜애애애애애옹.\"\n");
 		System.out.println("고양이에겐 미안한 일이지만 뭘 원하는지 모르겠다.\n");
 		System.out.println("1.무시한다\t2.뭔가를 준다.");	
@@ -64,7 +65,7 @@ public class Cat extends Npc {
 			System.out.println("\n\"고양이가 나를 빤히 보다 뒤돌아 사라졌다.\"\n");
 			int impD=GamePlayManager.dice();
 			System.out.println("고양이의 호감도가 "+impD+"만큼 떨어졌다...\n");
-			impressDown(name, impD);
+			impressDown(you, impD);
 			return;
 		} else {
 			System.out.println("\n\"뭐 가지고 있는 척 하지 마. 거지주제에.\"\n");
@@ -72,7 +73,7 @@ public class Cat extends Npc {
 			System.out.println("상처 받았다...\n");
 			int impU=GamePlayManager.dice();
 			System.out.println("고양이의 호감도가 "+impU+"만큼 올랐다\n");
-			impressUp(name, impU);
+			impressUp(you, impU);
 			return;
 		}
 		

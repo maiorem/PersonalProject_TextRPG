@@ -10,8 +10,8 @@ public class SaltSeller extends Npc {
 	
 
 	public SaltSeller() {
-		super.name="소금장수";
-		super.impress=0;
+		this.name="소금장수";
+		this.impress=0;
 	}
 
 
@@ -55,7 +55,8 @@ public class SaltSeller extends Npc {
 	@Override
 	protected void firstMeeting(String name) {
 		Npc npc = new SaltSeller();
-		game.getYou().get(name).meetingNpc(this.name, npc);
+		Player you = new Player(name);
+		you.meetingNpc(this.name, npc);
 		System.out.println("\"이 공기...\"");
 		System.out.println("\"이 짠맛....\"");
 		System.out.println("\"너도... 뭔가 느끼나?\"");
@@ -65,15 +66,15 @@ public class SaltSeller extends Npc {
 			System.out.println("\n\"하긴 일반인이 뭘 알리가 없지...\"\n");
 			int impD=GamePlayManager.dice();
 			System.out.println("소금장수의 호감도가 "+impD+"만큼 떨어졌다...\n");
-			impressDown(name, impD);
+			impressDown(you, impD);
 			return;
 		} else {
 			System.out.println("\n\"소금이... 진동하고 있어.\"");
 			System.out.println("\"울고 있나? 뭔가를 부르고 있는 것 같아...\"\n");
-			System.out.println("|| 무슨 일인지는 모르겠지만 소름이 돋아 도망치고 말았다. \n");
+			System.out.println("무슨 일인지는 모르겠지만 소름이 돋아 도망치고 말았다. \n");
 			int impU=GamePlayManager.dice();
 			System.out.println("소금장수의 호감도가 "+impU+"만큼 올랐다!\n");
-			impressUp(name, impU);
+			impressUp(you, impU);
 			return;
 		}
 		
