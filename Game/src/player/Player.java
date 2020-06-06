@@ -1,5 +1,10 @@
 package player;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 
 import Monster.Monster;
@@ -14,10 +19,8 @@ public class Player {
 	int defense;	// 방어력;
 	int gold;
 	int ex;
-	HashMap<String, Npc> npcImpress;
-	int nImp; 		//Npc 호감도
-	 
-	
+	HashMap<String, Npc> npcImpress = new HashMap<String, Npc>();
+		
 	public Player(String name) {
 		this.name=name;
 		level=1;
@@ -26,19 +29,18 @@ public class Player {
 		defense=1;
 		gold=0;
 		ex=0;
-		nImp=0;
-		npcImpress = new HashMap<>();
 	}
 	
 	
-	void meetingNpc(String npcName, Npc npc) {
+	public void meetingNpc(String npcName, Npc npc) {
 		npcImpress.put(npcName, npc);
 
 	}
 	
 	
 	public int getImp(String npcName) {
-		this.nImp=npcImpress.get(npcName).getImpress();
+		int nImp=0;
+		nImp=npcImpress.get(npcName).getImpress();
 		return nImp;
 	}
 	
@@ -185,9 +187,101 @@ public class Player {
 	}
 
 
-	
-	
-	
-	
-	
+	// 플레이어 상태 저장/불러오기 메서드
+	public void loadPlayer() {// 불러오기
+		FileInputStream f = null;
+		ObjectInputStream oos = null;
+//		Player load = new Player();
+		String name;
+
+
+
+		int bossCount, stage2Count, stage3Count;
+		try {
+			f = new FileInputStream("savedata.ser");
+			oos = new ObjectInputStream(f);
+			
+			name=((String) oos.readObject());
+			level=((Integer) oos.readObject());
+			hp=((Integer) oos.readObject());		// 피통
+			attack=((Integer) oos.readObject()); 	// 공격력
+			defense=((Integer) oos.readObject());	// 방어력;
+			gold= ((Integer) oos.readObject());
+			ex= ((Integer) oos.readObject());
+
+			
+			this.setName(name);// 이름밖에 안불러와짐
+			this.setLevel(level);
+
+			this.setHp(hp);
+			this.setAttack(attack);
+			this.setDefense(defense);
+			this.setGold(gold);
+			this.setEx(ex);
+			this.npcImpress=npcImpress;
+
+			oos.close();
+			System.out.println("플레이어 정보를 불러왔습니다");
+		} catch (Exception e) {
+
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+		} finally {
+			if (f != null)
+				try {
+					f.close();
+				} catch (IOException e) {
+				}
+			if (oos != null)
+				try {
+					oos.close();
+				} catch (IOException e) {
+				}
+		}
+	}
+
+	public void savePlayer() {// 저장
+		FileOutputStream f = null;
+		ObjectOutputStream oos = null;
+		try {
+
+			f = new FileOutputStream("data.ser");
+			oos = new ObjectOutputStream(f);
+
+			oos.writeObject(this.getName());
+			oos.writeObject(this.getLevel());
+			oos.writeObject(this.getHp());
+			oos.writeObject(this.getAttack());
+			oos.writeObject(this.getDefense());
+			oos.writeObject(this.getEx());
+			oos.writeObject(this.getGold());
+			oos.writeObject(this.getNpcImpress());
+
+			
+			f.close();
+			oos.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			if (f != null)
+				try {
+					f.close();
+				} catch (IOException e) {
+				}
+			if (oos != null)
+				try {
+					oos.close();
+				} catch (IOException e) {
+				}
+
+		}
+		System.out.println("플레이어 정보가 저장되었습니다");
+	}
 }
+	
+	
+	
+	
+

@@ -1,6 +1,7 @@
 package Npc;
 
 import gameBasic.GamePlayManager;
+import player.Player;
 
 public class SaltSeller extends Npc {
 
@@ -53,6 +54,8 @@ public class SaltSeller extends Npc {
 
 	@Override
 	protected void firstMeeting(String name) {
+		Npc npc = new SaltSeller();
+		game.getYou().get(name).meetingNpc(this.name, npc);
 		System.out.println("\"이 공기...\"");
 		System.out.println("\"이 짠맛....\"");
 		System.out.println("\"너도... 뭔가 느끼나?\"");

@@ -18,14 +18,13 @@ public class GameBasicInterface {
 			switch(num) {
 			case 1 :
 				open.tutorialMakePlayer();
-					
-					
-					
-					
-				
+
 				break;
 			case 2 :
-				
+				System.out.println(">> 불러 올 이름을 입력하세요 <<");
+				System.out.print("이름 : " );
+				String name=sc.nextLine();
+				manager.getYou().get(name).loadPlayer();
 				break;
 			case 3:
 				System.out.println("게임을 종료합니다.");

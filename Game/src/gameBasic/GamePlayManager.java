@@ -27,8 +27,8 @@ public class GamePlayManager {
 	public void creatPlayer(String name) {		
 		Player you = new Player(name);
 		addPlayer(name, you);
-		System.out.println("** 플레이어 "+you.getName()+"이/가 탄생하였습니다 **");
-		System.out.println("** 플레이어가 사망하기 전까지는 돌이킬 수 없습니다 **");
+		System.out.println("\n** 플레이어 "+you.getName()+"이/가 탄생하였습니다 **");
+		System.out.println("** 플레이어가 사망하기 전까지는 돌이킬 수 없습니다 **\n");
 	}
 
 	void addPlayer(String pname, Player player) {

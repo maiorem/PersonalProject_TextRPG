@@ -1,6 +1,7 @@
 package Npc;
 
 import gameBasic.GamePlayManager;
+import player.Player;
 
 public class OldMan extends Npc {
 
@@ -42,9 +43,11 @@ public class OldMan extends Npc {
 		
 
 	}
-
+	
 	
 	public void firstMeeting(String name) {
+		Npc npc = new OldMan();
+		game.getYou().get(name).meetingNpc(this.name, npc);
 		System.out.println("\"자네... 눈이 맑군.\"");
 		System.out.println("\"귀중한 말씀이 있는데 들어보지 않겠나.\"\n");
 		System.out.println("1.무시한다\t2.들어본다.");	

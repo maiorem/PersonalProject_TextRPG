@@ -7,6 +7,7 @@ import gameBasic.GamePlayManager;
 import map.village.BasicStore.BattleStore;
 import map.village.BasicStore.Inn;
 import map.village.BasicStore.Store;
+import player.Player;
 import sun.font.CreatedFontTracker;
 
 public abstract class Village {
@@ -29,7 +30,8 @@ public abstract class Village {
 		System.out.println("집과 사람들을 보니 마음이 안정되는 것을 느낀다.");
 		while(true) {
 			System.out.println("======================================================================");
-			System.out.println("1.걷는다.\t 2.상점에 간다.\t 3.여관을 찾는다.\n4.마을을 나간다.\t 5.내 상태를 본다.\n6.게임을 저장한다.\t 7.게임을 종료한다.\n");
+			System.out.println("1.걷는다.\t\t 2.상점에 간다.\t 3.여관을 찾는다.\t 4. 무기점에 간다.\n5.마을을 나간다.\t 6.내 상태를 본다.\n7.게임을 저장한다.\t 8.게임을 종료한다.");
+			System.out.println("======================================================================");
 			int sel=Integer.parseInt(input.nextLine().trim());
 			switch(sel) {
 			case 1:
@@ -42,15 +44,18 @@ public abstract class Village {
 				innVisit(name);
 				continue;
 			case 4:
+				battleStoreVisit(name);
+				continue;
+			case 5:
 				goOut(name);
 				break;
-			case 5:
+			case 6:
 				showMyStatus(name);
 				continue;
-			case 6:
+			case 7:
 				saveGame(name);
 				break;
-			case 7:
+			case 8:
 				System.out.println("게임을 종료합니다.");
 				System.exit(0);
 				break;
@@ -64,6 +69,8 @@ public abstract class Village {
 	abstract public void storeVisit(String name);
 
 	abstract public void innVisit(String name);
+	
+	abstract public void battleStoreVisit(String name);
 
 	public void showMyStatus(String name) {
 		game.getYou().get(name).showInfo();
@@ -71,7 +78,7 @@ public abstract class Village {
 
 
 	public void saveGame(String name) {
-
+		game.getYou().get(name).savePlayer();
 	}
 
 	abstract public void goOut(String name);
