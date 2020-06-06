@@ -1,64 +1,74 @@
 package Npc;
 
+import gameBasic.GamePlayManager;
+
 public class FlowerKid extends Npc {
 
-	@Override
-	public void action() {
-		// TODO Auto-generated method stub
 
+	
+
+	public FlowerKid() {
+		super.name="꽃파는 아이";
+		super.impress=0;
 	}
 
+
+
 	@Override
-	public void impressUp(int impU) {
+	protected void finalMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void impressDown(int impD) {
+	protected void sixthMeething(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void finalMeeting() {
+	protected void fifthMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void sixthMeething() {
+	protected void forthMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void fifthMeeting() {
+	protected void thidMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void forthMeeting() {
+	protected void secondMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void thidMeeting() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void secondMeeting() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void firstMeeting() {
-		// TODO Auto-generated method stub
+	protected void firstMeeting(String name) {
+		System.out.println("\"꽃 한송이 사시겠어요?\"");
+		System.out.println("\"귀중한 말씀이 있는데 들어보지 않겠나.\"\n");
+		System.out.println("1.무시한다\t2.산다.");	
+		int choice=Integer.parseInt(GamePlayManager.sc.nextLine());
+		if(choice==1) {
+			System.out.println("\n\"너무해...\"\n");
+			int impD=GamePlayManager.dice();
+			System.out.println("아이의 호감도가 "+impD+"만큼 떨어졌다...\n");
+			impressDown(name, impD);
+			return;
+		} else {
+			System.out.println("\n\"돈이 한푼도 없으시네요...\"");
+			int impU=GamePlayManager.dice();
+			System.out.println("아이의 호감도가 "+impU+"만큼 올랐다!\n");
+			impressUp(name, impU);
+			return;
+		}
 		
 	}
 

@@ -126,7 +126,7 @@ public class Openning {
 				choiceOne();
 				String name = sc.nextLine();
 				manager.creatPlayer(name);
-				System.out.println("알았어, "+manager.showName(name)+". 존재가 생겨난 것을 축하해.\n");
+				System.out.println("\n알았어, "+manager.showName(name)+". 존재가 생겨난 것을 축하해.\n");
 				System.out.println("|| 호수에 내 모습이 비친다.\n");
 				manager.showInfo(name);
 				dialogueSecond();

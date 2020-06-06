@@ -8,9 +8,9 @@ import map.village.BasicStore.*;
 public class SaltVillage extends Village {
 		
 	Npc theOld = new OldMan();
-	Npc flower;
-	Npc kitty;
-	Npc saltseller;	
+	Npc flower = new FlowerKid();
+	Npc kitty = new Cat();
+	Npc saltseller = new SaltSeller();	
 
 	
 	
@@ -36,27 +36,27 @@ public class SaltVillage extends Village {
 			case 1:
 				System.out.println("|| 그냥 바람이었다....");
 				System.out.println("|| 아무도 만나지 못했다.\n ");
-				break;
+				return;
 			case 2:
 				System.out.println("|| 나무의 그림자를 착각했어.");
 				System.out.println("|| 아무도 만나지 못했다.\n ");
-				break;
+				return;
 			case 3:
 				System.out.println("|| 노인이 다가오고 있다.\n");
-				theOld.action();
-				break;
+				theOld.action(name);
+				return;
 			case 4:
 				System.out.println("|| 꽃을 들고 있는 아이가 다가온다.\n");
-				flower.action();
-				break;
+				flower.action(name);
+				return;
 			case 5:
 				System.out.println("|| 고양이 한마리가 말을 걸어왔다.\n");
-				kitty.action();
-				break;
+				kitty.action(name);
+				return;
 			case 6:
 				System.out.println("|| 소금장수가 멀뚱히 지평선을 바라보며 서 있다.\n");
-				saltseller.action();
-				break;
+				saltseller.action(name);
+				return;
 			}
 			
 		}

@@ -14,8 +14,9 @@ public class Player {
 	int defense;	// 방어력;
 	int gold;
 	int ex;
-	
-	HashMap<String, Integer> npcImpress; //Npc 호감도
+	HashMap<String, Npc> npcImpress;
+	int nImp; 		//Npc 호감도
+	 
 	
 	public Player(String name) {
 		this.name=name;
@@ -25,13 +26,21 @@ public class Player {
 		defense=1;
 		gold=0;
 		ex=0;
-		npcImpress = new HashMap<String, Integer>();
+		nImp=0;
+		npcImpress = new HashMap<>();
 	}
 	
-	void addNpcImpress(Npc npc, String npcName) {
-		npcImpress.put(npcName, npc.getImpress());
+	
+	void meetingNpc(String npcName, Npc npc) {
+		npcImpress.put(npcName, npc);
+
 	}
 	
+	
+	public int getImp(String npcName) {
+		this.nImp=npcImpress.get(npcName).getImpress();
+		return nImp;
+	}
 	
 	
 	
@@ -117,6 +126,62 @@ public class Player {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
+
+	public int getAttack() {
+		return attack;
+	}
+
+	public void setAttack(int attack) {
+		this.attack = attack;
+	}
+
+	public int getDefense() {
+		return defense;
+	}
+
+	public void setDefense(int defense) {
+		this.defense = defense;
+	}
+
+	public int getGold() {
+		return gold;
+	}
+
+	public void setGold(int gold) {
+		this.gold = gold;
+	}
+
+	public int getEx() {
+		return ex;
+	}
+
+	public void setEx(int ex) {
+		this.ex = ex;
+	}
+
+	public HashMap<String, Npc> getNpcImpress() {
+		return npcImpress;
+	}
+
+	public void setNpcImpress(HashMap<String, Npc> npcImpress) {
+		this.npcImpress = npcImpress;
 	}
 
 

@@ -5,63 +5,46 @@ import Npc.Npc;
 public class StoreSeller extends Npc {
 
 	@Override
-	public void action() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void impressUp(int impU) {
+	protected void finalMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void impressDown(int impD) {
+	protected void sixthMeething(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void finalMeeting() {
+	protected void fifthMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void sixthMeething() {
+	protected void forthMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void fifthMeeting() {
+	protected void thidMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void forthMeeting() {
+	protected void secondMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	protected void thidMeeting() {
+	protected void firstMeeting(String name) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
-	protected void secondMeeting() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	protected void firstMeeting() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
