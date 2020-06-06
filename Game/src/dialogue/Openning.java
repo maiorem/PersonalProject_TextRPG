@@ -124,14 +124,16 @@ public class Openning {
 			int choice=Integer.parseInt(sc.nextLine().trim());
 			if(choice==1) {
 				choiceOne();
-				manager.creatPlayer();
-				System.out.println("네 이름을 다시 한번 말해 줘.");
 				String name = sc.nextLine();
+				manager.creatPlayer(name);
 				System.out.println("알았어, "+manager.showName(name)+". 존재가 생겨난 것을 축하해.\n");
 				System.out.println("|| 호수에 내 모습이 비친다.\n");
 				manager.showInfo(name);
 				dialogueSecond();
 				int search = Integer.parseInt(sc.nextLine().trim());
+				if(search==1) {
+					
+				}
 				
 
 			} else {
@@ -171,10 +173,9 @@ public class Openning {
 					System.out.println("|| 아이가 나에게 말을 걸었다.\n");
 					System.out.println("\"누구야?\"\n");
 					System.out.println("|| 나? 나 말이야? 나는....\n");
-					manager.creatPlayer();
+					String name = sc.nextLine();
+					manager.creatPlayer(name);
 					System.out.println("\n|| 저게 무슨 소리지?\n");
-					System.out.println("\"잘 못 들었어. 이름이 뭐라고?\"");
-					String name=sc.nextLine();
 					System.out.println("\"아, "+name+"라고 하는구나. 너는 유령이야?\"\n");
 					System.out.println("|| 아니야. 나는....\n");
 					manager.showInfo(name);

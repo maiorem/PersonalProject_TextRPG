@@ -24,11 +24,8 @@ public class GamePlayManager {
 	}
 	
 	
-	public void creatPlayer() {		
-		Player you = null;
-		System.out.println("** 이름을 생성합니다 **");
-		String name = sc.nextLine();
-		you = new Player(name);
+	public void creatPlayer(String name) {		
+		Player you = new Player(name);
 		addPlayer(name, you);
 		System.out.println("** 플레이어 "+you.getName()+"이/가 탄생하였습니다 **");
 		System.out.println("** 플레이어가 사망하기 전까지는 돌이킬 수 없습니다 **");
@@ -45,11 +42,12 @@ public class GamePlayManager {
 	public void showInfo(String name) {
 		try {
 			you.get(name).showInfo();
+			return;
 		} catch(NullPointerException e) {
 			System.out.println("\"뭘 하고 싶은 거야?\"");
 			System.out.println("\"당신 지금 투명한 상태라는 거 알고 있어?\"");
 			System.out.println("\"이름부터 만들지 그래\"\n");
-			creatPlayer();
+			return;
 		}
 	}
 
