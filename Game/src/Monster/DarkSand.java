@@ -1,9 +1,9 @@
 package Monster;
 
-public class Orc extends Monster {
+public class DarkSand extends Monster {
 		
-	Orc() {
-		setName("오크");
+	DarkSand() {
+		setName("갉아먹는 의식");
 		setHp(50);
 		setAttack(8);
 		setDefense(3);

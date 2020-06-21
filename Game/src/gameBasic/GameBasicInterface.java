@@ -11,7 +11,7 @@ public class GameBasicInterface {
 	GamePlayManager manager = new GamePlayManager();
 
 
-	void gameInterface() {
+	void gameInterface() throws InterruptedException {
 		while(true){
 			open.basicMenu();
 			int num = Integer.parseInt(sc.nextLine().trim());

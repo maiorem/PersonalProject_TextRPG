@@ -1,9 +1,9 @@
 package Monster;
 
-public class Slime extends Monster {
+public class BigSpider extends Monster {
 
-	public Slime() {
-		setName("슬라임");
+	public BigSpider() {
+		setName("비대한 자책");
 		setHp(5);
 		setAttack(1);
 		setDefense(2);

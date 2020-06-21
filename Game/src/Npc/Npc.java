@@ -35,7 +35,7 @@ public abstract class Npc {
 		
 	}
 	
-	public void action(String name) {
+	public void action(String name) throws InterruptedException {
 		
 		switch(impress) {
 		case 0:
@@ -76,7 +76,7 @@ public abstract class Npc {
 
 	protected abstract void secondMeeting(String name);
 
-	protected abstract void firstMeeting(String name);
+	protected abstract void firstMeeting(String name) throws InterruptedException;
 
 	public String getName() {
 		return name;

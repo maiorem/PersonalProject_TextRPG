@@ -10,7 +10,7 @@ public class GamePlayManager {
 
 	HashMap<String,Player> you;
 	public static Scanner sc;
-
+	
 
 	public GamePlayManager() {
 

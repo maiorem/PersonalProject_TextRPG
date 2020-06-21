@@ -1,9 +1,9 @@
 package Monster;
 
-public class Wolf extends Monster {
+public class GiantTree extends Monster {
 
-	public Wolf() {
-		setName("울프");
+	public GiantTree() {
+		setName("뒤덮는 불안");
 		setHp(10);
 		setAttack(4);
 		setDefense(3);

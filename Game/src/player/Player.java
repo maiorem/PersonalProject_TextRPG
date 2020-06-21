@@ -5,12 +5,52 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
-import Monster.Monster;
-import Npc.Npc;
+import Monster.*;
+import Npc.*;
+import items.*;
+import map.village.BasicStore.Potion;
 
 public class Player {
+	
+	Scanner sc=new Scanner(System.in);
+	
+	
+	public Hat A1 = new Hat("", 0, 0, 0, 0, 0);
+
+	public Earring A2 = new Earring("", 0, 0, 0, 0, 0);
+
+	public OldRobe B1 = new OldRobe("", 0, 0, 0, 0, 0);
+
+	public SilkRobe B2 = new SilkRobe("", 0, 0, 0, 0, 0);
+
+	public Neckless B3 = new Neckless("", 0, 0, 0, 0, 0);
+
+	public OldClock C1 = new OldClock("", 0, 0, 0, 0, 0);
+
+	public SmartClock C2 = new SmartClock("", 0, 0, 0, 0, 0);
+
+	public InvisibilityClock C3 = new InvisibilityClock("", 0, 0, 0, 0, 0);
+
+	public OldWand D1 = new OldWand("", 0, 0, 0, 0, 0);
+
+	public NightWand D2 = new NightWand("", 0, 0, 0, 0, 0);
+
+	public DreamersWand D3 = new DreamersWand("", 0, 0, 0, 0, 0);
+
+	public Inven inven = new Inven();
+
+	// S M L
+	public Potion sp = new Potion("소형 체력 포션", 30, 0, 20);
+
+	public Potion np = new Potion("중형 체력 포션", 60, 0, 30);
+
+	public Potion bp = new Potion("대형 체력 포션", 150, 0, 60);
+	public ArrayList<Potion> potion = new ArrayList<Potion>(3);	
+	
 	
 	String name;	// 플레이어 이름
 	int level;		// 레벨
@@ -20,7 +60,9 @@ public class Player {
 	int gold;
 	int ex;
 	HashMap<String, Npc> npcImpress = new HashMap<String, Npc>();
-		
+	
+	public Player() {}
+	
 	public Player(String name) {
 		this.name=name;
 		level=1;
@@ -44,7 +86,56 @@ public class Player {
 		return nImp;
 	}
 	
-	
+	public void showPotion() {
+
+		// 처음에만 포션틀을 추가
+		if (potion.size() == 0) {
+			potion.add(sp);
+			potion.add(np);
+			potion.add(bp);
+		}
+		System.out.println("	==========보유 포션==========");
+		System.out.println("	" + potion.toString());
+
+	}
+	public void equipItem() {
+
+		System.out.println("	=======================================");
+		System.out.println("	장착할 장비를 골라주세요.");
+		System.out.println("	=======================================");
+
+		System.out.println("	0. 마을로 돌아가기");
+
+		int select = sc.nextInt();
+
+		sc.nextLine();
+
+		if (select == 0) {
+			return;
+		}
+
+		inven.checkType(inven.inven.get((select - 1)).equipmentType); // 장비 타입 비교해서 중복된 타입일 시 장비 반환
+
+		inven.equip.add(inven.inven.get((select - 1)));
+
+		System.out.println(inven.inven.get((select - 1)).equipmentName + "장착");
+
+		inven.inven.remove((select - 1));
+
+		int dmg = invenMaxHealth - invenCurrentHealth;
+
+		calEquipStat();
+		System.out.println("	+ 장비 공격력 : " + inven.equipPower + ", " + "+ 장비 체력 : " + inven.equipHealth + ", "
+				+ "+ 장비 회피율 : " + inven.equipEvasion);
+		invenCurrentStrength = getCurrentStrength() + inven.equipPower;
+		invenMaxHealth = getMaxHealth() + inven.equipHealth;
+		invenCurrentHealth = getCurrentHealth() + inven.equipHealth - dmg;
+		invenCurrentEvasion = getEvasion() + inven.equipEvasion;
+
+		inven.showInventory();
+		inven.showEquip();
+
+	}	
 	
 	int levelSet() {
 		switch(ex) {

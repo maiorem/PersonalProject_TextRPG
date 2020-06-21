@@ -15,7 +15,7 @@ public class Openning {
 	public void basicMenu() {
 		System.out.println("▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒");
 		System.out.println("▒▒▒▒▒▒           D R E A M I N G , Y O U           ▒▒▒▒▒▒");
-		System.out.println("▒▒▒▒▒▒                                             ▒▒▒▒▒▒");
+		System.out.println("▒▒▒▒▒▒                                     By.세영    ▒▒▒▒▒▒");
 		System.out.println("▒▒▒▒▒▒ 1. N E W  G A M E                           ▒▒▒▒▒▒");
 		System.out.println("▒▒▒▒▒▒ 2. L O A D  G A M E                         ▒▒▒▒▒▒");
 		System.out.println("▒▒▒▒▒▒ 3. E X I T                                  ▒▒▒▒▒▒");
@@ -34,7 +34,7 @@ public class Openning {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("내가 그렇게 생각한 것은, 나에 대해 모호하게 느껴지기 때문이다.");
+		System.out.println("눈을 뜨자마자 그렇게 생각한 이유는, 나에 대해 모호하게 느껴지기 때문이다.");
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -46,7 +46,7 @@ public class Openning {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		System.out.println("그냥... 존재 자체가 부웅 떠 있는 기분.");
+		System.out.println("느껴지는 것은 자아존재감 하나 뿐. 그냥... 허공에 부웅 떠 있는 기분이다.");
 		for(int i=0; i<3; i++) {
 			try {
 				Thread.sleep(3000);
@@ -129,7 +129,7 @@ public class Openning {
 	}
 
 
-	public void tutorialMakePlayer() {
+	public void tutorialMakePlayer() throws InterruptedException {
 		while(true) {
 			dialogueNoname();
 			String name = sc.nextLine();

@@ -1,9 +1,9 @@
 package Monster;
 
-public class Goblin extends Monster {
+public class Goat extends Monster {
 
-	public Goblin() {
-		setName("고블린");
+	public Goat() {
+		setName("기어다니는 기억");
 		setHp(20);
 		setAttack(3);
 		setDefense(6);

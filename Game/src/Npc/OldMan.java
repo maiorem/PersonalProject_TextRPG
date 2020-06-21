@@ -15,7 +15,7 @@ public class OldMan extends Npc {
 
 
 	@Override
-	public void action(String name) {
+	public void action(String name) throws InterruptedException {
 		
 		switch(impress) {
 		case 0:
@@ -45,24 +45,32 @@ public class OldMan extends Npc {
 	}
 	
 	
-	public void firstMeeting(String name) {
+	public void firstMeeting(String name) throws InterruptedException {
 		Npc npc = new OldMan();
 		Player you = new Player(name);
 		you.meetingNpc(this.name, npc);
+		Thread.sleep(500);
 		System.out.println("\"자네... 눈이 맑군.\"");
+		Thread.sleep(500);
 		System.out.println("\"귀중한 말씀이 있는데 들어보지 않겠나.\"\n");
+		Thread.sleep(500);
 		System.out.println("1.무시한다\t2.들어본다.");	
 		int choice=Integer.parseInt(GamePlayManager.sc.nextLine());
 		if(choice==1) {
+			Thread.sleep(500);
 			System.out.println("\n\"요새 젊은 것들은...\"\n");
 			int impD=GamePlayManager.dice();
+			Thread.sleep(500);
 			System.out.println("노인의 호감도가 "+impD+"만큼 떨어졌다...\n");
 			impressDown(you, impD);
 			return;
 		} else {
+			Thread.sleep(500);
 			System.out.println("\n\"딱한 젊은이로고.\"");
+			Thread.sleep(500);
 			System.out.println("\"다음부터는 누가 이런 식으로 말을 걸거든 도망가라구.\"\n");
 			int impU=GamePlayManager.dice();
+			Thread.sleep(500);
 			System.out.println("노인의 호감도가 "+impU+"만큼 올랐다!\n");
 			impressUp(you, impU);
 			return;

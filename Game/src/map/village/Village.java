@@ -24,11 +24,13 @@ public abstract class Village {
 	Inn inn;
 
 
-	public void villageMenu(String name) {
+	public void villageMenu(String name) throws InterruptedException {
+		Thread.sleep(500);
 		System.out.println("======================================================================");
 		System.out.println("마을에 도착했다.");
 		System.out.println("집과 사람들을 보니 마음이 안정되는 것을 느낀다.");
 		while(true) {
+			Thread.sleep(500);
 			System.out.println("======================================================================");
 			System.out.println("1.걷는다.\t\t 2.상점에 간다.\t 3.여관을 찾는다.\t 4. 무기점에 간다.\n5.마을을 나간다.\t 6.내 상태를 본다.\n7.게임을 저장한다.\t 8.게임을 종료한다.");
 			System.out.println("======================================================================");
@@ -64,7 +66,7 @@ public abstract class Village {
 
 	}
 
-	abstract public void walk(String name);
+	abstract public void walk(String name) throws InterruptedException;
 
 	abstract public void storeVisit(String name);
 
